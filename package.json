@@ -1,0 +1,11 @@
+{
+  "name": "r-marketplace",
+  "version": "1.0.0",
+  "description": "IOS and Android Mobile App that allows UCR students to buy and sell items on campus.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
