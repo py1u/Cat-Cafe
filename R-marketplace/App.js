@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, TextInput, View, Image, AlertButton} from 'react-native';
+import React, {useState} from 'react';
+import {Text, TextInput, View, Image, Button} from 'react-native';
 
 const Cat = props => {
   const[isHungry, setIsHungry] = useState(true);
@@ -9,13 +9,13 @@ const Cat = props => {
       <Text>
         I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
       </Text>
-      <Button>
+      <Button
         onPress={()=> {
           setIsHungry(false);
         }}
-        disabled={!ishungry}
+        disabled={!isHungry}
         title={isHungry ? 'pour me some milk, please!' : 'Thank you!'}
-      </Button>
+      />
     </View>
 
 
