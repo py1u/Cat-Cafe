@@ -1,27 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {Text, TextInput, View} from 'react-native';
 
-export default function App() {
-  console.log("App executed");
-
-  console.log("hello world")
-
+const Scottie = () => {
+  const username = "ScottieBear";
   return (
-
-    <View style={styles.container}>
-      <Text>Scotties Crib</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Text>Hello, I am {username}!</Text> 
     </View>
-
-    
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const introList = () => {
+  return (
+    <View>
+      <Text>The wait list be like:</Text>
+      <Scottie />
+      <Scottie />
+      <Scottie />
+      
+    </View>
+  )
+}; 
+
+export default introList;
