@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {Text, TextInput, View, Image} from 'react-native';
 
-export default function App() {
+const CatApp = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Image
+        source = {{
+          uri: 'https://reactnative.dev/docs/assets/p_cat1.png', 
+        }}
+          style= {{width: 200, height: 200}}
+        />
+        <Text>Hello, I am your cat!</Text>
     </View>
   );
-}
+}; 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default CatApp;
