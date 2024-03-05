@@ -1,18 +1,34 @@
 import React from 'react';
-import {Text, TextInput, View, Image} from 'react-native';
+import {Text, TextInput, View, Image, AlertButton} from 'react-native';
 
-const CatApp = () => {
+const Cat = props => {
+  const[isHungry, setIsHungry] = useState(true);
+
   return (
     <View>
-      <Image
-        source = {{
-          uri: 'https://reactnative.dev/docs/assets/p_cat1.png', 
+      <Text>
+        I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
+      </Text>
+      <Button>
+        onPress={()=> {
+          setIsHungry(false);
         }}
-          style= {{width: 200, height: 200}}
-        />
-        <Text>Hello, I am your cat!</Text>
+        disabled={!ishungry}
+        title={isHungry ? 'pour me some milk, please!' : 'Thank you!'}
+      </Button>
     </View>
-  );
-}; 
 
-export default CatApp;
+
+  );
+};
+
+const Cafe = () => {
+  return (
+    <>
+    <Cat name = "munkustrap" />
+    <Cat name = "Spot"/>
+    </>
+  );
+};
+
+export default Cafe;
