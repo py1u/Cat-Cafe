@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 
 const Cat = props => {
   const [isHungry, setIsHungry] = useState(true);
@@ -9,7 +9,7 @@ const Cat = props => {
       <Text>
         I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
       </Text>
-      <Pressable
+      <Button
         onPress={() => {
           setIsHungry(false);
         }}
