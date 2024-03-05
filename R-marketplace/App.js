@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-
+import { Button } from '@rneui/base';
 
 const MarketplaceScreen = () => {
   const categories = ['All', 'Electronics', 'Clothing', 'Home'];
@@ -127,4 +127,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MarketplaceScreen;
+
+const App = () => {
+  return <Button title="Hello World" />;
+};
+//export default MarketplaceScreen;
+
+export default App;
