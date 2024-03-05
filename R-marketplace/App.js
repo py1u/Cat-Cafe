@@ -1,54 +1,117 @@
 import React from 'react';
-import {SectionList, StyleSheet, Text, View} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22,
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-});
+const MarketplaceScreen = () => {
+  const categories = ['All', 'Electronics', 'Clothing', 'Home'];
 
-const SectionListBasics = () => {
   return (
     <View style={styles.container}>
-      <SectionList
-        sections={[
-          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
-          {
-            title: 'J',
-            data: [
-              'Jackson',
-              'James',
-              'Jillian',
-              'Jimmy',
-              'Joel',
-              'John',
-              'Julie',
-            ],
-          },
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-        renderSectionHeader={({section}) => (
-          <Text style={styles.sectionHeader}>{section.title}</Text>
-        )}
-        keyExtractor={item => `basicListEntry-${item}`}
-      />
+      <View style={styles.header}>
+        <TextInput style={styles.searchBar} placeholder="Search" />
+        <View style={styles.categoryButtons}>
+          {categories.map((category, index) => (
+            <TouchableOpacity key={index} style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>{category}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.body}>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Settings</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Other</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-export default SectionListBasics;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    padding: 16,
+    backgroundColor: 'lightgray',
+  },
+  searchBar: {
+    height: 40,
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  categoryButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  categoryButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'gray',
+    borderRadius: 8,
+  },
+  categoryButtonText: {
+    color: 'white',
+  },
+  body: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 16,
+  },
+  column: {
+    flex: 1,
+    marginRight: 16,
+  },
+  itemBox: {
+    height: 100,
+    backgroundColor: 'lightblue',
+    marginBottom: 12,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: 'gray',
+  },
+  footerButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'lightgray',
+    borderRadius: 8,
+  },
+  footerButtonText: {
+    color: 'black',
+  },
+});
+
+export default MarketplaceScreen;
