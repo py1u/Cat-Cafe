@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+
 
 const MarketplaceScreen = () => {
   const categories = ['All', 'Electronics', 'Clothing', 'Home'];
+  const [searchInput, setSearchInput] = useState('');
+  
+  const handleSearch = () => {
+    // Perform search logic using the searchInput value
+    console.log('Performing search for:', searchInput);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TextInput style={styles.searchBar} placeholder="Search" />
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search"
+          value={searchInput}
+          onChangeText={setSearchInput}
+          onSubmitEditing={handleSearch}
+        />
         <View style={styles.categoryButtons}>
           {categories.map((category, index) => (
             <TouchableOpacity key={index} style={styles.categoryButton}>
