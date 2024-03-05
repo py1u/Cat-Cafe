@@ -1,24 +1,18 @@
 import React from 'react';
-import {Text, TextInput, View} from 'react-native';
+import {Text, TextInput, View, Image} from 'react-native';
 
-const Scottie = props => {
+const CatApp = () => {
   return (
     <View>
-      <Text>Hello, I am {props.name}!</Text> 
+      <Image
+        source = {{
+          uri: 'https://reactnative.dev/docs/assets/p_cat1.png', 
+        }}
+          style= {{width: 200, height: 200}}
+        />
+        <Text>Hello, I am your cat!</Text>
     </View>
   );
-};
-
-const introList = () => {
-  return (
-    <View>
-      <Text>The wait list be like:</Text>
-      <Scottie name = "Peter" />
-      <Scottie name = "Pete" />
-      <Scottie name = "Petah" />
-      
-    </View>
-  )
 }; 
 
-export default introList;
+export default CatApp;
