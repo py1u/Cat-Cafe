@@ -1,16 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import "react-native-gesture-handler";
-// Your other imports go here
-import { NavigationContainer } from "@react-navigation/native";
 
-const App = () => {
-  return <NavigationContainer>{
+export default function App() {
+  console.log("App executed");
+
+  console.log("hello world")
+
+  return (
+
+    <View style={styles.container}>
+      <Text>Scotties Crib</Text>
+      <StatusBar style="auto" />
+    </View>
+
     
-    
-    
-    
-    }</NavigationContainer>;
+  );
 }
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
