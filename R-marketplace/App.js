@@ -1,32 +1,30 @@
 import React, {useState} from 'react';
-import {Text, TextInput, View, Image, Button} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 
 const Cat = props => {
-  const[isHungry, setIsHungry] = useState(true);
+  const [isHungry, setIsHungry] = useState(true);
 
   return (
     <View>
       <Text>
         I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
       </Text>
-      <Button
-        onPress={()=> {
+      <Pressable
+        onPress={() => {
           setIsHungry(false);
         }}
         disabled={!isHungry}
-        title={isHungry ? 'pour me some milk, please!' : 'Thank you!'}
+        title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
       />
     </View>
-
-
   );
 };
 
 const Cafe = () => {
   return (
     <>
-    <Cat name = "munkustrap" />
-    <Cat name = "Spot"/>
+      <Cat name="Munkustrap" />
+      <Cat name="Spot" />
     </>
   );
 };
