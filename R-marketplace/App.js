@@ -1,54 +1,152 @@
-import React from 'react';
-import {SectionList, StyleSheet, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button } from '@rneui/base';
+import { ThemeProvider, createTheme } from '@rneui/themed';
+
+const MarketplaceScreen = () => {
+  const categories = ['All', 'Food', 'Clothing', 'Housing'];
+  const [searchInput, setSearchInput] = useState('');
+  
+  const handleSearch = () => {
+    // Perform search logic using the searchInput value
+    console.log('Performing search for:', searchInput);
+  };
+
+  return (
+    
+    <View style={styles.container}>
+
+      
+      <View style={styles.header}>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search"
+          value={searchInput}
+          onChangeText={setSearchInput}
+          onSubmitEditing={handleSearch}
+        />
+        <View style={styles.categoryButtons}>
+          {categories.map((category, index) => (
+            <TouchableOpacity key={index} style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>{category}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.body}>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+        <View style={styles.column}>
+          {/* Placeholder for item image */}
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+          <View style={styles.itemBox} />
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Settings</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Upload</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.footerButton}>
+          <Text style={styles.footerButtonText}>Profile</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+  return <ThemeProvider theme={theme}>{/* ... */}</ThemeProvider>;
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22,
   },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
+  header: {
+    padding: 16,
+    backgroundColor: 'lightgray',
   },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
+  searchBar: {
+    height: 40,
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  categoryButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  categoryButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'gray',
+    borderRadius: 8,
+  },
+  categoryButtonText: {
+    color: 'white',
+  },
+  body: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 16,
+  },
+  column: {
+    flex: 1,
+    marginRight: 16,
+  },
+  itemBox: {
+    height: 100,
+    backgroundColor: 'lightblue',
+    marginBottom: 12,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: 'gray',
+  },
+  footerButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'lightgray',
+    borderRadius: 8,
+  },
+  footerButtonText: {
+    color: 'black',
   },
 });
 
-const SectionListBasics = () => {
-  return (
-    <View style={styles.container}>
-      <SectionList
-        sections={[
-          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
-          {
-            title: 'J',
-            data: [
-              'Jackson',
-              'James',
-              'Jillian',
-              'Jimmy',
-              'Joel',
-              'John',
-              'Julie',
-            ],
-          },
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-        renderSectionHeader={({section}) => (
-          <Text style={styles.sectionHeader}>{section.title}</Text>
-        )}
-        keyExtractor={item => `basicListEntry-${item}`}
-      />
-    </View>
-  );
-};
 
-export default SectionListBasics;
+// const App = () => {
+//   return <Button title="Hello World" />;
+// };
+
+const theme = createTheme({
+  lightColors: {
+    primary: '#fff',
+  },
+  darkColors: {
+    primary: '#000',
+  },
+  mode: 'light',
+});
+
+export default MarketplaceScreen;
+
+//export default App;
