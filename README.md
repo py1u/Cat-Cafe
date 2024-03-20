@@ -1,4 +1,4 @@
-# R-Marketplace
-IOS and Android Mobile App that allows UCR students to buy and sell items on campus. 
+# Cat-Cafe
+A simple IOS app whee you help cats run a cafe
 
 Tooling: React Native and JS
